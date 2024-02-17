@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DRAW IMAGE ONLINE</title>
+        <link href="css/base.css" rel="stylesheet" type="text/css">
+        <link href="css/header.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <script src="js/base.js" type="text/javascript" defer></script>
+        <script src="js/canvas_manager.js" type="text/javascript" defer></script>
+        <script src="js/tool_manager.js" type="text/javascript" defer></script>
+        <script src="js/tools.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+        <header>
+            <nav class="l-header-menu">
+                <div class="l-header-menu__item">
+                    ファイル
+                    <div class="l-header-menu__dropdown">
+                        <div
+                            class="l-header-menu__dropdown-item"
+                            data-clickable-key="newCanvas"
+                        >
+                            <div>新規</div>
+                            <div>Ctrl+N</div>
+                        </div>
+                        <div
+                            class="l-header-menu__dropdown-item"
+                            data-clickable-key="exportCanvas"
+                        >
+                            <div>書き出し</div>
+                            <div>Ctrl+E</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-header-menu__item">
+                    挿入
+                    <div class="l-header-menu__dropdown">
+                        <div
+                            class="l-header-menu__dropdown-item"
+                            data-clickable-key="insertImage"
+                        >
+                            <div>画像</div>
+                            <div>Alt+I,I</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-header-menu__item">
+                    ツール
+                    <div class="l-header-menu__dropdown">
+                        <div
+                            class="l-header-menu__dropdown-item"
+                            data-clickable-key="sequenceTool"
+                        >
+                            <div>連番ツール</div>
+                            <div>Alt+T,S</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-header-menu__item">
+                    表示
+                    <div class="l-header-menu__dropdown">
+                        <div class="l-header-menu__dropdown-item">
+                            50%
+                        </div>
+                        <div class="l-header-menu__dropdown-item">
+                            100%
+                        </div>
+                        <div class="l-header-menu__dropdown-item">
+                            150%
+                        </div>
+                        <div class="l-header-menu__dropdown-item">
+                            画面幅に合わせる
+                        </div>
+                    </div>
+                </div>
+                <div class="l-header-menu__item">
+                    その他
+                    <div class="l-header-menu__dropdown">
+                        <div class="l-header-menu__dropdown-item">
+                            アップデート履歴
+                        </div>
+                        <div class="l-header-menu__dropdown-item">
+                            バージョン: v1.0.0-beta1
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="l-main-content">
+                <div class="l-main-content__canvas">
+                    <canvas id="id-canvas" width="3840" height="2160"></canvas>
+                </div>
+                <div class="l-main-content__panel">
+                    <div id="tool-panel-header"></div>
+                    <div id="tool-panel-body"></div>
+                </div>
+            </div>
+        </main>
+        <template id="id-template__sequence-tool">
+            <div class="l-tool-panel__property-container">
+                現在の値: <input type="number" name="currentValue"/>
+            </div>
+            <div class="l-tool-panel__property-container">
+                公差の値: <input type="number" name="step"/>
+            </div>
+            <div class="l-tool-panel__property-container">
+                フォント: <input type="text" name="font"/>
+            </div>
+            <div class="l-tool-panel__property-container">
+                文字の色: <input type="color" name="color"/>
+            </div>
+        </template>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+.l-main-content {
+    display: flex;
+    height: 100%;
+
+    .l-main-content__canvas {
+        width: 100%;
+        padding: 100px;
+        margin-right: var(--panel-width);
+        overflow: auto;
+        text-align: center;
+    }
+
+    .l-main-content__panel {
+        position: fixed;
+        top: var(--header-height);
+        right: 0;
+        bottom: 0;
+        z-index: 900;
+        width: var(--panel-width);
+        background-color: #2f3031;
+    }
+}
