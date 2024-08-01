@@ -1,3 +1,4 @@
+import { KeyboardManager } from "../js/keyboard_manager.js";
 import { CanvasManager } from '../js/canvas_manager.js';
 import { ToolManager } from "../js/tool_manager.js";
 import { SequenceTool } from "../js/tools.js";
@@ -17,43 +18,59 @@ document.addEventListener('CustomLayoutLoaded', () => {
         toolManager.draw(x, y);
     });
 
-    document.querySelectorAll('[data-clickable-key]').forEach((clickableElement) => {
+    // メニュー処理
+    document.addEventListener('CustomOperation', (event) => {
+        const operation = event.detail.operation;
+        // [ファイル] -> [新規]
+        if (operation === 'newCanvas') {
+            canvasManager.reset();
+            toolManager.setTool(null);
+            return;
+        }
+        // [編集] -> [元に戻す]
+        if (operation === 'undo') {
+            canvasManager.undo();
+            return;
+        }
+        // [編集] -> [やり直す]
+        if (operation === 'redo') {
+            canvasManager.redo();
+            return;
+        }
+        // [ファイル] -> [書き出し]
+        if (operation === 'exportCanvas') {
+            exportCanvas(canvasManager.getDataURL());
+            return;
+        }
+        // [挿入] -> [画像]
+        if (operation === 'insertImage') {
+            loadImage().then(dataURL => {
+                canvasManager.drawImage(dataURL);
+            });
+            return;
+        }
+        // [ツール] -> [連番ツール]
+        if (operation === 'sequenceTool') {
+            toolManager.setTool(new SequenceTool(canvasManager));
+            return;
+        }
+    });
+
+    // メニュークリック
+    document.querySelectorAll('[data-operation]').forEach((clickableElement) => {
         clickableElement.addEventListener('click', () => {
-            const clickableKey = clickableElement.dataset.clickableKey;
-            // [ファイル] -> [新規]
-            if (clickableKey === 'newCanvas') {
-                canvasManager.reset();
-                toolManager.setTool(null);
-                return;
-            }
-            // [ファイル] -> [書き出し]
-            if (clickableKey === 'exportCanvas') {
-                exportCanvas(canvasManager.getDataURL());
-                return;
-            }
-            // [編集] -> [元に戻す]
-            if (clickableKey === 'undo') {
-                canvasManager.undo();
-                return;
-            }
-            // [編集] -> [やり直す]
-            if (clickableKey === 'redo') {
-                canvasManager.redo();
-                return;
-            }
-            // [挿入] -> [画像]
-            if (clickableKey === 'insertImage') {
-                loadImage().then(dataURL => {
-                    canvasManager.drawImage(dataURL);
-                });
-                return;
-            }
-            // [ツール] -> [連番ツール]
-            if (clickableKey === 'sequenceTool') {
-                toolManager.setTool(new SequenceTool(canvasManager));
-            }
+            const customOperationEvent = new CustomEvent('CustomOperation', {
+                detail: {
+                    operation: clickableElement.dataset.operation,
+                },
+            });
+            document.dispatchEvent(customOperationEvent);
         });
     });
+
+    // KeyboardManager のセットアップ
+    const keyboardManager = new KeyboardManager();
+    keyboardManager.init();
 });
 
 

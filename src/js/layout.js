@@ -28,7 +28,7 @@ const buildHeaderMenu = () => {
             submenuContainerElement.appendChild(submenuItemElement);
 
             submenuItemElement.classList.add('l-header-menu__dropdown-item');
-            submenuItemElement.dataset.clickableKey = submenuItem.clickableKey;
+            submenuItemElement.dataset.operation = submenuItem.operation;
             submenuItem.labelList.forEach((label) => {
                 const labelElement = document.createElement('div');
                 submenuItemElement.appendChild(labelElement);

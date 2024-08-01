@@ -5,16 +5,16 @@ export const menuItems = [
             {
                 labelList: [
                     '新規作成',
-                    'Ctrl+N',
+                    'Ctrl+Alt+N',
                 ],
-                clickableKey: 'newCanvas',
+                operation: 'newCanvas',
             },
             {
                 labelList: [
                     '書き出し',
-                    'Ctrl+E',
+                    'Ctrl+Alt+E',
                 ],
-                clickableKey: 'exportCanvas',
+                operation: 'exportCanvas',
             },
         ],
     },
@@ -26,14 +26,14 @@ export const menuItems = [
                     '元に戻す',
                     'Ctrl+Z',
                 ],
-                clickableKey: 'undo',
+                operation: 'undo',
             },
             {
                 labelList: [
                     'やり直し',
                     'Ctrl+Shift+Z',
                 ],
-                clickableKey: 'redo',
+                operation: 'redo',
             },
         ],
     },
@@ -45,7 +45,7 @@ export const menuItems = [
                     '画像',
                     'Alt+I,I',
                 ],
-                clickableKey: 'insertImage',
+                operation: 'insertImage',
             },
         ],
     },
@@ -57,7 +57,7 @@ export const menuItems = [
                     '連番ツール',
                     'Alt+T,S',
                 ],
-                clickableKey: 'sequenceTool',
+                operation: 'sequenceTool',
             },
         ],
     },
@@ -68,25 +68,25 @@ export const menuItems = [
                 labelList: [
                     '50%',
                 ],
-                clickableKey: null,
+                operation: null,
             },
             {
                 labelList: [
                     '100%',
                 ],
-                clickableKey: null,
+                operation: null,
             },
             {
                 labelList: [
                     '150%',
                 ],
-                clickableKey: null,
+                operation: null,
             },
             {
                 labelList: [
                     '画面幅に合わせる',
                 ],
-                clickableKey: null,
+                operation: null,
             },
         ],
     },
@@ -97,13 +97,13 @@ export const menuItems = [
                 labelList: [
                     'アップデート履歴',
                 ],
-                clickableKey: null,
+                operation: null,
             },
             {
                 labelList: [
                     'バージョン: v1.0.0-beta1',
                 ],
-                clickableKey: null,
+                operation: null,
             },
         ],
     },
