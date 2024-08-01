@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DRAW IMAGE ONLINE</title>
+        <meta charset="utf-8">
+        <link href="css/base.css" rel="stylesheet" type="text/css">
+        <link href="css/header.css" rel="stylesheet" type="text/css">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <script src="js/base.js" type="module" defer></script>
+        <script src="js/layout.js" type="module" defer></script>
+        <script src="js/menu.js" type="module" defer></script>
+        <script src="js/keyboard_manager.js" type="module" defer></script>
+        <script src="js/canvas_manager.js" type="module" defer></script>
+        <script src="js/tool_manager.js" type="module" defer></script>
+        <script src="js/tools.js" type="module" defer></script>
+    </head>
+    <body>
+        <header>
+            <nav id="id-header-menu" class="l-header-menu"></nav>
+        </header>
+        <main>
+            <div class="l-main-content">
+                <div class="l-main-content__canvas">
+                    <canvas id="id-canvas" width="3840" height="2160"></canvas>
+                </div>
+                <div class="l-main-content__panel">
+                    <div id="tool-panel-header"></div>
+                    <div id="tool-panel-body"></div>
+                </div>
+            </div>
+        </main>
+        <template
+            id="id-template__sequence-tool"
+            data-component-url="/templates/sequence-tool.html"
+        ></template>
+    </body>
+</html>

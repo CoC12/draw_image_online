@@ -1,0 +1,72 @@
+:root {
+    --box-shadow: 0px 0px 35px 0px #272727;
+    --font-size: 12px;
+    --font-size-lg: 14px;
+
+    --header-height: 24px;
+    --header-menu-item-padding-x: 12px;
+    --panel-width: 300px;
+    --panel-padding: 12px;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    height: var(--header-height);
+    color: #ffffff;
+    background-color: #404040;
+    box-shadow: var(--box-shadow);
+}
+
+main {
+    height: calc(100% - var(--header-height));
+    padding-top: var(--header-height);
+    background-color: #1e1f20;
+}
+
+#id-canvas {
+    background-image:
+        linear-gradient(45deg, #dcdcdc 25%, transparent 25%, transparent 75%, #dcdcdc 75%, #dcdcdc),
+        linear-gradient(45deg, #dcdcdc 25%, #ffffff 25%, #ffffff 75%, #dcdcdc 75%, #dcdcdc);
+    background-position: 0 0, 12px 12px;
+    background-size: 24px 24px;
+    border: #000000 solid 1px;
+}
+
+#tool-panel-header {
+    padding: var(--panel-padding);
+    font-size: var(--font-size-lg);
+    color: #ffffff;
+    border-bottom: #444546 solid 2px;
+}
+
+#tool-panel-body {
+    padding: var(--panel-padding);
+    font-size: var(--font-size-lg);
+    color: #ffffff;
+
+    .l-tool-panel__property-container {
+        display: flex;
+        align-items: center;
+        padding-top: 4px;
+
+        input {
+            margin-left: 4px;
+            outline: none;
+        }
+    }
+}
