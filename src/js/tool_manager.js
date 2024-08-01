@@ -1,4 +1,4 @@
-class ToolManager {
+export class ToolManager {
 
     /**
      * コンストラクタ

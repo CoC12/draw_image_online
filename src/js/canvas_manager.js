@@ -1,4 +1,4 @@
-class CanvasManager {
+export class CanvasManager {
 
     /**
      * コンストラクタ

@@ -1,3 +1,8 @@
+import { CanvasManager } from '../js/canvas_manager.js';
+import { ToolManager } from "../js/tool_manager.js";
+import { SequenceTool } from "../js/tools.js";
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const canvasElement = document.querySelector('#id-canvas');
     canvasElement.scrollIntoView({ block: 'center' });
@@ -59,7 +64,7 @@ const exportCanvas = (dataURL) => {
  * @returns {Promise<string>} 画像データURL
  */
 const loadImage = () => {
-    promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         const tempFileInput = document.createElement('input');
         tempFileInput.type = 'file';
         tempFileInput.addEventListener('change', () => {

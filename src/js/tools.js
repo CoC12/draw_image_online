@@ -55,7 +55,7 @@ class BaseTool {
 /**
  * 連番ツール
  */
-class SequenceTool extends BaseTool {
+export class SequenceTool extends BaseTool {
 
     /**
      * コンストラクタ
