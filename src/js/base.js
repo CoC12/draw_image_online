@@ -3,7 +3,7 @@ import { ToolManager } from "../js/tool_manager.js";
 import { SequenceTool } from "../js/tools.js";
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('CustomLayoutLoaded', () => {
     const canvasElement = document.querySelector('#id-canvas');
     canvasElement.scrollIntoView({ block: 'center' });
 
