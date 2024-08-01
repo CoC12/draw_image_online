@@ -7,11 +7,19 @@ document.addEventListener('CustomLayoutLoaded', () => {
     const canvasElement = document.querySelector('#id-canvas');
     canvasElement.scrollIntoView({ block: 'center' });
 
-    // CanvasManager のセットアップ
+    // ToolManager / CanvasManager のセットアップ
+    const toolManager = new ToolManager(
+        document.querySelector('#tool-panel-header'),
+        document.querySelector('#tool-panel-body'),
+    );
     const canvasManager = new CanvasManager(canvasElement);
+    canvasManager.setClickListener((x, y) => {
+        toolManager.draw(x, y);
+    });
+
     document.querySelectorAll('[data-clickable-key]').forEach((clickableElement) => {
-        const clickableKey = clickableElement.dataset.clickableKey;
         clickableElement.addEventListener('click', () => {
+            const clickableKey = clickableElement.dataset.clickableKey;
             // [ファイル] -> [新規]
             if (clickableKey === 'newCanvas') {
                 canvasManager.reset();
@@ -35,14 +43,6 @@ document.addEventListener('CustomLayoutLoaded', () => {
                 toolManager.setTool(new SequenceTool(canvasManager));
             }
         });
-    });
-    // ToolManager のセットアップ
-    const toolManager = new ToolManager(
-        document.querySelector('#tool-panel-header'),
-        document.querySelector('#tool-panel-body'),
-    );
-    canvasManager.setClickListener((x, y) => {
-        toolManager.draw(x, y);
     });
 });
 

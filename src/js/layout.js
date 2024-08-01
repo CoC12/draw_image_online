@@ -3,6 +3,7 @@ import { menuItems } from '../js/menu.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     buildHeaderMenu();
+    loadComponent();
 
     const event = new CustomEvent('CustomLayoutLoaded');
     document.dispatchEvent(event);
@@ -33,6 +34,22 @@ const buildHeaderMenu = () => {
                 submenuItemElement.appendChild(labelElement);
                 labelElement.textContent = label;
             });
+        });
+    });
+};
+
+
+/**
+ * 画面コンポーネントを読み込む。
+ */
+const loadComponent = () => {
+    const componentNodeList = document.querySelectorAll('[data-component-url]');
+    componentNodeList.forEach((componentNode) => {
+        const componentUrl = componentNode.dataset.componentUrl;
+        fetch(componentUrl).then(
+            (response) => response.text(),
+        ).then((componentText) => {
+            componentNode.innerHTML = componentText;
         });
     });
 };

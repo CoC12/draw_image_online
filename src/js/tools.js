@@ -18,18 +18,18 @@ class BaseTool {
     }
 
     /**
-     * ツール名を返す。
-     * @returns ツール名
-     */
-    getToolName() {
-        throw new Error('not implemented');
-    }
-
-    /**
      * パネル要素を返す。
      * @returns パネル要素
      */
     getPanelElement() {
+        return this.panelElement;
+    }
+
+    /**
+     * ツール名を返す。
+     * @returns ツール名
+     */
+    getToolName() {
         throw new Error('not implemented');
     }
 
@@ -97,14 +97,6 @@ export class SequenceTool extends BaseTool {
      */
     getToolName() {
         return '連番ツール';
-    }
-
-    /**
-     * パネル要素を返す。
-     * @returns パネル要素
-     */
-    getPanelElement() {
-        return this.panelElement;
     }
 
     /**
