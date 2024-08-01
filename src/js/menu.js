@@ -101,7 +101,7 @@ export const menuItems = [
             },
             {
                 labelList: [
-                    'バージョン: v1.0.0-beta1',
+                    'バージョン: v1.0.0-beta2',
                 ],
                 operation: null,
             },
