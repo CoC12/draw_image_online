@@ -31,6 +31,16 @@ document.addEventListener('CustomLayoutLoaded', () => {
                 exportCanvas(canvasManager.getDataURL());
                 return;
             }
+            // [編集] -> [元に戻す]
+            if (clickableKey === 'undo') {
+                canvasManager.undo();
+                return;
+            }
+            // [編集] -> [やり直す]
+            if (clickableKey === 'redo') {
+                canvasManager.redo();
+                return;
+            }
             // [挿入] -> [画像]
             if (clickableKey === 'insertImage') {
                 loadImage().then(dataURL => {

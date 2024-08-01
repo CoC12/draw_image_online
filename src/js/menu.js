@@ -4,7 +4,7 @@ export const menuItems = [
         submenuList: [
             {
                 labelList: [
-                    '新規',
+                    '新規作成',
                     'Ctrl+N',
                 ],
                 clickableKey: 'newCanvas',
@@ -15,6 +15,25 @@ export const menuItems = [
                     'Ctrl+E',
                 ],
                 clickableKey: 'exportCanvas',
+            },
+        ],
+    },
+    {
+        label: '編集',
+        submenuList: [
+            {
+                labelList: [
+                    '元に戻す',
+                    'Ctrl+Z',
+                ],
+                clickableKey: 'undo',
+            },
+            {
+                labelList: [
+                    'やり直し',
+                    'Ctrl+Shift+Z',
+                ],
+                clickableKey: 'redo',
             },
         ],
     },
